@@ -30,7 +30,7 @@ export default function Register() {
   };
 
   return (
-    <AuthShell>
+    <AuthShell maxWidth={600}>
       <Typography variant="h5" align="center">{t('auth.createAccount')}</Typography>
       <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 3 }}>
         {t('auth.registerSub')}
@@ -38,13 +38,13 @@ export default function Register() {
       <Box component="form" onSubmit={submit} sx={{ display: 'grid', gap: 2 }}>
         {error && <Alert severity="error">{error}</Alert>}
         <TextField label={t('auth.fullName')} value={form.fullName} onChange={set('fullName')} fullWidth />
-        <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: '1fr 1fr' }}>
+        <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' } }}>
           <TextField label={t('auth.username')} value={form.username} onChange={set('username')} required />
           <TextField label={t('auth.email')} type="email" value={form.email} onChange={set('email')} required />
         </Box>
         <TextField label={t('auth.password')} type="password" value={form.password} onChange={set('password')} required
           helperText="min. 8" />
-        <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: '1fr 1fr' }}>
+        <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' } }}>
           <TextField label={t('auth.dob')} type="date" value={form.dateOfBirth} onChange={set('dateOfBirth')}
             InputLabelProps={{ shrink: true }} />
           <TextField label={t('auth.gender')} select value={form.gender} onChange={set('gender')}>
