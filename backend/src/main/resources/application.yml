@@ -2,9 +2,11 @@ spring:
   application:
     name: mindmirror-backend
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/mindmirror}
-    username: ${SPRING_DATASOURCE_USERNAME:mindmirror}
-    password: ${SPRING_DATASOURCE_PASSWORD:mindmirror_dev_pw}
+    # Prefer SPRING_DATASOURCE_URL (docker-compose). Otherwise build from DB_* parts
+    # (Render supplies host/port/database/user/password from the managed Postgres).
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:mindmirror}}
+    username: ${SPRING_DATASOURCE_USERNAME:${DB_USER:mindmirror}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${DB_PASSWORD:mindmirror_dev_pw}}
   jpa:
     hibernate:
       ddl-auto: none   # Flyway owns the schema

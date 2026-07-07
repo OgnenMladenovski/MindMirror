@@ -1,0 +1,60 @@
+# Render Blueprint — hosts PostgreSQL + FastAPI AI service + Spring Boot backend.
+# The React frontend stays on Vercel and points at the backend via VITE_API_URL.
+#
+# Deploy: Render Dashboard → New → Blueprint → pick this repo (it reads render.yaml).
+# See docs/DEPLOY.md for the full step-by-step (incl. the two values you paste in).
+
+databases:
+  - name: mindmirror-db
+    databaseName: mindmirror
+    user: mindmirror
+    plan: free
+    region: frankfurt
+
+services:
+  # --- FastAPI AI microservice ------------------------------------------------
+  - type: web
+    name: mindmirror-ai
+    runtime: docker
+    plan: free
+    region: frankfurt
+    rootDir: ai-service
+    healthCheckPath: /health
+    envVars:
+      - key: CHAT_BACKEND
+        value: rule_based
+
+  # --- Spring Boot backend ----------------------------------------------------
+  - type: web
+    name: mindmirror-backend
+    runtime: docker
+    plan: free
+    region: frankfurt
+    rootDir: backend
+    healthCheckPath: /api/hbsc/reference
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: docker
+      # DB connection pulled from the managed Postgres above.
+      - key: DB_HOST
+        fromDatabase: { name: mindmirror-db, property: host }
+      - key: DB_PORT
+        fromDatabase: { name: mindmirror-db, property: port }
+      - key: DB_NAME
+        fromDatabase: { name: mindmirror-db, property: database }
+      - key: DB_USER
+        fromDatabase: { name: mindmirror-db, property: user }
+      - key: DB_PASSWORD
+        fromDatabase: { name: mindmirror-db, property: password }
+      # Auto-generated strong JWT secret.
+      - key: MINDMIRROR_JWT_SECRET
+        generateValue: true
+      - key: MINDMIRROR_SEED_DEMO
+        value: "true"
+      # You paste these in the Render dashboard (sync: false = prompt, don't sync):
+      #   MINDMIRROR_AI_BASE_URL  → the mindmirror-ai service URL (https://mindmirror-ai.onrender.com)
+      #   MINDMIRROR_CORS_ORIGINS → your Vercel URL (https://your-app.vercel.app)
+      - key: MINDMIRROR_AI_BASE_URL
+        sync: false
+      - key: MINDMIRROR_CORS_ORIGINS
+        sync: false
