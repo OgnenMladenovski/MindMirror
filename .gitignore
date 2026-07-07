@@ -24,4 +24,4 @@ frontend/dist/
 *.iml
 .DS_Store
 
-.claude
+.claude/
