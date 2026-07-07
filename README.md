@@ -1,58 +1,136 @@
-# MindMirror — AI Digital Twin for Student Wellbeing
+# MindMirror - an AI Digital Twin for tracking Student Wellbeing
 
-An HBSC-inspired platform where each student owns a **digital-twin avatar** that reflects
-their physical and mental wellbeing. Students log daily habits; an AI microservice scores
-them, predicts tomorrow, generates personalised (bilingual) recommendations, and drives the
-avatar. Everything is available in **English and Macedonian (македонски)**.
+> HBSC-inspired platform for monitoring the physical and mental wellbeing of students, with reference data for North Macedonia.
 
-> Status: **full stack working**. Spring Boot API, FastAPI AI microservice, ML models,
-> PostgreSQL schema, HBSC North Macedonia data, Docker orchestration **and the React
-> frontend** (dashboards, digital-twin avatar, MK/EN i18n) are complete and verified.
+---
+
+## Overview
+
+A web application where each student owns a digital-twin avatar that reflects their physical and mental wellbeing. Students log their daily habits like: sleep, mood, stress, physical activity, screen time, water intake, study hours, social time, energy and nutrition. A FastAPI microservice scores each entry, predicts the next day with machine-learning models, and generates personalised recommendations. The avatar changes with the student's lifestyle: healthy habits make it thrive, while unhealthy ones make it tired and stressed. The application also compares each student's habits against HBSC reference data for North Macedonia.
+
+---
+
+## Features
+
+- **Daily Wellness Log** — Students can record: sleep, stress, mood, activity, water, screen time, study hours, social time, energy and nutrition each day.
+- **AI Analysis** — Each entry is scored for: burnout, sleep, wellbeing, social balance, productivity and overall wellness, with an assigned risk level.
+- **Recommendation Engine** — Trend-aware advice based on multiple days of history rather than a single entry.
+- **Predictive Analytics** — Machine-learning models (RandomForest / GradientBoosting) predict: tomorrow's mood, burnout, stress, sleep quality and recommended activity, with feature importance.
+- **Digital Twin Avatar** — An animated avatar reflecting the current state of the student: Excellent, Happy, Neutral, Stressed, Burned Out or Exhausted.
+- **Dashboard** — Summary cards and charts: mood line, sleep area, screen-time bar, wellness radar, activity distribution and a wellness calendar heatmap.
+- **Daily Challenges** — One generated challenge per day, completed for experience points.
+- **Achievements** — Unlockable badges such as: 7 Healthy Days, Early Sleeper, Hydration Master, Stress Fighter, Fitness Hero and Mood Explorer.
+- **HBSC Comparison** — Each student's rolling averages compared against HBSC North Macedonia reference values.
+- **AI Chat Assistant** — A rule-based assistant that answers questions grounded in the student's own history.
+
+---
+
+## Tech Stack
+
+| Layer | Technology                        |
+|-------|-----------------------------------|
+| Frontend | React 18                          |
+| Backend | Spring Boot 3                     |
+| Migrations | Flyway                            |
+| Database | PostgreSQL                        |
+| AI Service | FastAPI / Python                  |
+| Machine Learning | scikit-learn, pandas, NumPy, joblib |
+| Orchestration | Docker, Docker Compose            |
+
+---
 
 ## Architecture
 
+The project has 3 independently deployable components:
 ```
-                 React (later)
-                      │  REST + JWT
-                      ▼
-                Spring Boot API  ──REST──►  FastAPI AI service  ──►  ML models (joblib)
-        auth · logs · dashboard             analyze · predict
-        challenges · achievements           recommend · trends
-        avatar · statistics · chat          avatar-state · chat
-                      │
-                      ▼
-                 PostgreSQL 17
+MindMirror
+├── backend/          Spring Boot API (auth, logs, dashboard, challenges,
+│                     achievements, avatar, statistics, HBSC, chat)
+├── ai-service/       FastAPI microservice (scoring, recommendations,
+│                     predictions, trends, avatar state, chat) + ML models
+├── frontend/         React application (dashboards, digital-twin avatar,
+│                     English / Macedonian interface)
+└── docs/             Architecture, API catalog, HBSC data provenance
 ```
 
-- **backend/** — Spring Boot 3, Spring Security (JWT), Spring Data JPA, Flyway, PostgreSQL, Swagger.
-- **ai-service/** — FastAPI, scikit-learn (RandomForest/GradientBoosting), pandas, NumPy, joblib.
-- **frontend/** — placeholder for the React 19 app (MUI, Recharts, Framer Motion) — next phase.
-- **docs/** — architecture, API catalog, HBSC data provenance.
+---
 
-## Quick start
+## Project Setup
 
-**1. Backend stack (Docker):**
+**1. Clone the repository**
 ```bash
-docker compose up --build         
+git clone https://github.com/OgnenMladenovski/MindMirror.git
+cd MindMirror
 ```
-- Spring Boot API + Swagger UI → http://localhost:8080/swagger-ui.html
-- FastAPI AI docs → http://localhost:8000/docs
 
-**2. Frontend (React dev server):**
+**2. Start the backend stack**
+```bash
+docker compose up --build
+```
+- Spring Boot API and Swagger UI: http://localhost:8080/swagger-ui.html
+- FastAPI service and documentation: http://localhost:8000/docs
+
+**3. Start the frontend**
 ```bash
 cd frontend
 npm install
-npm run dev                       
+npm run dev
 ```
-Open **http://localhost:5173** and log in as **demo / demo1234** (admin: **admin / admin1234**).
-A demo student is seeded with ~30 days of history so the dashboard, charts, predictions and
-HBSC comparison have data immediately. The Vite dev server proxies `/api` to the backend on
-:8080 (see `frontend/vite.config.js`), so no CORS setup is needed.
 
-> If your machine already runs PostgreSQL on 5432, start the stack with a different host
-> port: `POSTGRES_PORT=5544 docker compose up` (internal wiring is unaffected).
+**4. Open in browser**
+```
+http://localhost:5173
+```
 
-> **You do NOT need Python, Maven or a local JDK.** Docker runs PostgreSQL, the FastAPI AI
-> service and the Spring Boot backend for you. The only tool you run directly is `npm`
-> (for the frontend). If `npm run dev` says *"Port 5173 is already in use"*, another Vite
-> instance is running — stop it first: `lsof -ti :5173 | xargs kill`.
+---
+
+## Test Login Credentials
+
+| Username | Password | Role |
+|----------|----------|------|
+| `demo` | `demo1234` | Student |
+| `admin` | `admin1234` | Admin |
+
+---
+
+## Flow
+
+```
+Register / Login
+   ↓
+Daily Check-In (log habits)
+   ↓
+AI Analysis (scores, recommendations, avatar, prediction)
+   ↓
+Dashboard (cards, charts, avatar)
+   ↓
+Challenges / Achievements / HBSC comparison / AI chat
+```
+
+---
+
+## Pages
+| Page | Route | Description |
+|------|-------|-------------|
+| Landing | `/` | Public landing page |
+| Login | `/login` | Login form |
+| Register | `/register` | Registration form |
+| Dashboard | `/dashboard` | Summary cards and charts |
+| Daily Check-In | `/checkin` | Daily wellness log with live AI results |
+| Analytics | `/analytics` | Trends and next-day predictions |
+| Avatar | `/avatar` | Digital-twin avatar and attributes |
+| Challenges | `/challenges` | Daily challenge and history |
+| Achievements | `/achievements` | Achievement badges and progress |
+| HBSC Compare | `/hbsc` | Comparison with HBSC North Macedonia averages |
+| Chat | `/chat` | AI wellbeing assistant |
+| Profile | `/profile` | User profile |
+| Settings | `/settings` | Language and theme |
+| Admin | `/admin` | Aggregated statistics (admin only) |
+
+---
+
+## Team
+
+- **Ognen Mladenovski** - 233108
+- **Hristina Gjorgjievska** - 233215
+- **Evica Isaevska** - 233245
