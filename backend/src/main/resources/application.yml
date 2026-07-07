@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: mindmirror-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/mindmirror}
+    username: ${SPRING_DATASOURCE_USERNAME:mindmirror}
+    password: ${SPRING_DATASOURCE_PASSWORD:mindmirror_dev_pw}
+  jpa:
+    hibernate:
+      ddl-auto: none   # Flyway owns the schema
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+server:
+  port: ${BACKEND_PORT:8080}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+mindmirror:
+  jwt:
+    secret: ${MINDMIRROR_JWT_SECRET:change-me-mindmirror-super-secret-key-please-rotate-in-prod}
+    expiration-ms: ${MINDMIRROR_JWT_EXPIRATION_MS:86400000}
+  ai:
+    base-url: ${MINDMIRROR_AI_BASE_URL:http://localhost:8000}
+    timeout-ms: 8000
+  seed-demo: ${MINDMIRROR_SEED_DEMO:true}
+  cors:
+    allowed-origins: ${MINDMIRROR_CORS_ORIGINS:http://localhost:5173,http://localhost:3000}
+
+logging:
+  level:
+    com.mindmirror: INFO

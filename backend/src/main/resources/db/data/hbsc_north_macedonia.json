@@ -1,0 +1,13 @@
+{
+  "country": "north-macedonia",
+  "year": 2022,
+  "source": "HBSC 2021/2022 international report / data browser (https://data-browser.hbsc.org)",
+  "note": "APPROXIMATE values — a human-editable mirror of the seed data in V2__reference_and_catalog.sql. Verify and replace exact figures from the HBSC data browser for North Macedonia. Editing this file does NOT change the database; update the Flyway migration (or add a new V__ migration) to change seeded values.",
+  "indicators": [
+    { "indicator": "life_satisfaction",     "unit": "/10",     "gender": "BOTH", "values": { "11": 8.3, "13": 8.0, "15": 7.7 } },
+    { "indicator": "sleep_hours",            "unit": "h",       "gender": "BOTH", "values": { "11": 8.6, "13": 8.1, "15": 7.5 } },
+    { "indicator": "physical_activity_min",  "unit": "min/day", "gender": "BOTH", "values": { "11": 55,  "13": 50,  "15": 45  } },
+    { "indicator": "screen_time_hours",      "unit": "h",       "gender": "BOTH", "values": { "11": 4.5, "13": 5.5, "15": 6.5 } },
+    { "indicator": "stress_level",           "unit": "/10",     "gender": "BOTH", "values": { "11": 4.5, "13": 5.2, "15": 5.8 } }
+  ]
+}

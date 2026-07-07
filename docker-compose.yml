@@ -1,0 +1,66 @@
+# MindMirror — full local stack.
+#   docker compose up --build
+# Starts: PostgreSQL 17, the FastAPI AI microservice, and the Spring Boot API.
+# The React frontend is added in a later iteration.
+services:
+  db:
+    image: postgres:17
+    container_name: mindmirror-db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-mindmirror}
+      POSTGRES_USER: ${POSTGRES_USER:-mindmirror}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mindmirror_dev_pw}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - mindmirror_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mindmirror} -d ${POSTGRES_DB:-mindmirror}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks: [mindmirror]
+
+  ai-service:
+    build: ./ai-service
+    container_name: mindmirror-ai
+    environment:
+      CHAT_BACKEND: ${CHAT_BACKEND:-rule_based}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    ports:
+      - "${AI_SERVICE_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; sys.exit(0) if urllib.request.urlopen('http://localhost:8000/health').status==200 else sys.exit(1)\""]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 40s
+    networks: [mindmirror]
+
+  backend:
+    build: ./backend
+    container_name: mindmirror-backend
+    depends_on:
+      db:
+        condition: service_healthy
+      ai-service:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-mindmirror}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-mindmirror}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-mindmirror_dev_pw}
+      MINDMIRROR_AI_BASE_URL: ${AI_SERVICE_URL:-http://ai-service:8000}
+      MINDMIRROR_JWT_SECRET: ${JWT_SECRET:-change-me-mindmirror-super-secret-key-please-rotate-in-prod}
+      MINDMIRROR_JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS:-86400000}
+      MINDMIRROR_SEED_DEMO: ${SEED_DEMO_DATA:-true}
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+    networks: [mindmirror]
+
+volumes:
+  mindmirror_pgdata:
+
+networks:
+  mindmirror:
+    driver: bridge

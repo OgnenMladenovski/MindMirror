@@ -1,0 +1,100 @@
+{
+  "app": { "name": "MindMirror", "tagline": "Your AI digital twin for wellbeing" },
+  "nav": {
+    "dashboard": "Dashboard", "checkin": "Daily Check-In", "analytics": "Analytics",
+    "avatar": "Avatar", "challenges": "Challenges", "achievements": "Achievements",
+    "hbsc": "HBSC Compare", "chat": "AI Assistant", "profile": "Profile",
+    "settings": "Settings", "admin": "Admin", "logout": "Log out"
+  },
+  "common": {
+    "save": "Save", "cancel": "Cancel", "loading": "Loading…", "today": "Today",
+    "you": "You", "hbsc": "HBSC", "difference": "Difference", "viewAll": "View all",
+    "complete": "Complete", "completed": "Completed", "xp": "XP", "level": "Level",
+    "streak": "Streak", "days": "days", "noData": "No data yet — add a daily check-in.",
+    "min": "min", "retry": "Retry", "of": "of"
+  },
+  "landing": {
+    "hero": "Meet your MindMirror",
+    "sub": "Log your day, and your digital twin reflects how you really feel. AI-powered scores, predictions and personalised advice — inspired by the HBSC study.",
+    "getStarted": "Get started", "login": "Log in",
+    "f1title": "Digital Twin", "f1body": "An avatar that thrives with healthy habits and tires when you overdo it.",
+    "f2title": "AI Insights", "f2body": "Burnout, sleep and wellness scores with predictions for tomorrow.",
+    "f3title": "HBSC Compare", "f3body": "See how you compare with adolescents in North Macedonia."
+  },
+  "auth": {
+    "welcomeBack": "Welcome back", "createAccount": "Create your account",
+    "loginSub": "Log in to see your avatar and today's insights.",
+    "registerSub": "Start tracking your wellbeing in under a minute.",
+    "username": "Username", "email": "Email", "password": "Password",
+    "usernameOrEmail": "Username or email", "fullName": "Full name",
+    "dob": "Date of birth", "gender": "Gender",
+    "loginCta": "Log in", "registerCta": "Create account",
+    "haveAccount": "Already have an account?", "noAccount": "New to MindMirror?",
+    "loginHere": "Log in", "registerHere": "Sign up",
+    "invalid": "Invalid credentials", "failed": "Something went wrong",
+    "demoHint": "Demo: demo / demo1234"
+  },
+  "gender": { "MALE": "Male", "FEMALE": "Female", "OTHER": "Other", "UNSPECIFIED": "Prefer not to say" },
+  "risk": { "Low": "Low risk", "Medium": "Medium risk", "High": "High risk" },
+  "dashboard": {
+    "title": "Dashboard", "greeting": "Hi {{name}} 👋", "subtitle": "Here's how you're doing.",
+    "mood30": "Mood — last 30 days", "sleepTrend": "Sleep trend", "screenTime": "Screen time",
+    "wellnessDim": "Wellness dimensions", "activityDist": "How your day is spent",
+    "moodCalendar": "Wellness calendar", "quickCheckin": "Daily check-in",
+    "quickCheckinSub": "Log today to update your avatar."
+  },
+  "checkin": {
+    "title": "Daily Check-In", "subtitle": "How was your day? This updates your avatar and insights.",
+    "sleep": "Sleep hours", "stress": "Stress level", "mood": "Mood", "activity": "Physical activity (min)",
+    "water": "Water intake (L)", "screen": "Screen time (h)", "study": "Study hours",
+    "social": "Time with friends (min)", "energy": "Energy level", "nutrition": "Nutrition quality",
+    "notes": "Notes (optional)", "submit": "Save & analyse", "saving": "Analysing…",
+    "success": "Saved! Your avatar is updated.", "results": "Today's results",
+    "yourScores": "Your scores", "yourAvatar": "Your avatar", "advice": "Advice for you",
+    "prediction": "Tomorrow's prediction"
+  },
+  "scores": {
+    "burnout": "Burnout", "sleep": "Sleep", "wellbeing": "Wellbeing", "social": "Social balance",
+    "productivity": "Productivity", "overall": "Overall wellness"
+  },
+  "avatar": {
+    "title": "Your Digital Twin", "subtitle": "Your avatar reflects your recent wellbeing.",
+    "energy": "Energy", "glow": "Glow", "darkCircles": "Dark circles", "smile": "Smile",
+    "stress": "Stress", "yes": "Yes", "no": "No", "history": "Recent states"
+  },
+  "challenges": {
+    "title": "Challenges", "today": "Today's challenge", "history": "Past challenges",
+    "complete": "Mark complete", "completed": "Completed ✓", "reward": "+{{xp}} XP",
+    "empty": "No challenges yet."
+  },
+  "achievements": { "title": "Achievements", "unlocked": "Unlocked", "locked": "Locked", "progress": "Progress" },
+  "hbsc": {
+    "title": "HBSC Comparison", "subtitle": "You vs adolescents in North Macedonia (age {{age}}).",
+    "indicator": "Indicator", "note": "HBSC reference values are approximate — see project docs."
+  },
+  "analytics": {
+    "title": "Analytics & Trends", "trends": "Trends & insights", "prediction": "Tomorrow's prediction",
+    "moodTomorrow": "Mood", "burnoutTomorrow": "Burnout", "stressTomorrow": "Stress",
+    "sleepTomorrow": "Sleep quality", "recommendedActivity": "Recommended activity",
+    "featureImportance": "What drives the model (feature importance)", "model": "Model"
+  },
+  "chat": {
+    "title": "AI Wellbeing Assistant", "placeholder": "Ask about your sleep, stress, mood…",
+    "send": "Send", "empty": "Ask me anything about your wellbeing.",
+    "s1": "Why is my burnout score high?", "s2": "What should I improve?", "s3": "How is my sleep?"
+  },
+  "profile": {
+    "title": "Profile", "fullName": "Full name", "email": "Email", "username": "Username",
+    "ageGroup": "HBSC age group", "member": "Member since"
+  },
+  "settings": {
+    "title": "Settings", "language": "Language", "english": "English", "macedonian": "Македонски",
+    "appearance": "Appearance", "darkMode": "Dark mode", "saved": "Settings saved"
+  },
+  "admin": {
+    "title": "Admin Dashboard", "totalUsers": "Users", "totalLogs": "Total logs",
+    "avgWellness": "Avg wellness", "burnoutDist": "Burnout risk distribution",
+    "commonChallenges": "Most completed challenges", "hbsc": "Anonymous HBSC comparison",
+    "onlyAdmin": "Admin access required."
+  }
+}

@@ -1,0 +1,25 @@
+# Env
+.env
+
+# Java / Maven
+backend/target/
+*.class
+
+# Python
+ai-service/.venv/
+ai-service/__pycache__/
+**/__pycache__/
+*.pyc
+ai-service/model_store/*.joblib
+ai-service/model_store/*.json
+!ai-service/model_store/.gitkeep
+
+# Node / frontend (later)
+frontend/node_modules/
+frontend/dist/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store

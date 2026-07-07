@@ -1,0 +1,5 @@
+# Overrides applied when SPRING_PROFILES_ACTIVE=docker (values still come from env).
+logging:
+  level:
+    com.mindmirror: INFO
+    org.flywaydb: INFO
