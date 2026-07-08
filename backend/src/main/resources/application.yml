@@ -32,7 +32,9 @@ mindmirror:
     expiration-ms: ${MINDMIRROR_JWT_EXPIRATION_MS:86400000}
   ai:
     base-url: ${MINDMIRROR_AI_BASE_URL:http://localhost:8000}
-    timeout-ms: 8000
+    # High enough to survive a hosted AI-service cold start (Render free ~50s)
+    # instead of failing with 503. Override with MINDMIRROR_AI_TIMEOUT_MS.
+    timeout-ms: ${MINDMIRROR_AI_TIMEOUT_MS:60000}
   seed-demo: ${MINDMIRROR_SEED_DEMO:true}
   cors:
     allowed-origins: ${MINDMIRROR_CORS_ORIGINS:http://localhost:5173,http://localhost:3000}

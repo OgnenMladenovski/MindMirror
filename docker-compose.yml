@@ -24,9 +24,6 @@ services:
   ai-service:
     build: ./ai-service
     container_name: mindmirror-ai
-    environment:
-      CHAT_BACKEND: ${CHAT_BACKEND:-rule_based}
-      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
     ports:
       - "${AI_SERVICE_PORT:-8000}:8000"
     healthcheck:

@@ -3,7 +3,7 @@
   "nav": {
     "dashboard": "Dashboard", "checkin": "Daily Check-In", "analytics": "Analytics",
     "avatar": "Avatar", "challenges": "Challenges", "achievements": "Achievements",
-    "hbsc": "HBSC Compare", "chat": "AI Assistant", "profile": "Profile",
+    "hbsc": "HBSC Compare", "profile": "Profile",
     "settings": "Settings", "admin": "Admin", "logout": "Log out"
   },
   "common": {
@@ -77,11 +77,6 @@
     "moodTomorrow": "Mood", "burnoutTomorrow": "Burnout", "stressTomorrow": "Stress",
     "sleepTomorrow": "Sleep quality", "recommendedActivity": "Recommended activity",
     "featureImportance": "What drives the model (feature importance)", "model": "Model"
-  },
-  "chat": {
-    "title": "AI Wellbeing Assistant", "placeholder": "Ask about your sleep, stress, mood…",
-    "send": "Send", "empty": "Ask me anything about your wellbeing.",
-    "s1": "Why is my burnout score high?", "s2": "What should I improve?", "s3": "How is my sleep?"
   },
   "profile": {
     "title": "Profile", "fullName": "Full name", "email": "Email", "username": "Username",

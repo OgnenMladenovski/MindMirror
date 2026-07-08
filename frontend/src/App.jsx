@@ -12,7 +12,6 @@ import AvatarPage from './pages/AvatarPage';
 import Challenges from './pages/Challenges';
 import Achievements from './pages/Achievements';
 import Hbsc from './pages/Hbsc';
-import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Admin from './pages/Admin';
@@ -47,7 +46,6 @@ export default function App() {
           <Route path="/challenges" element={<Challenges />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/hbsc" element={<Hbsc />} />
-          <Route path="/chat" element={<Chat />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/admin" element={<Admin />} />

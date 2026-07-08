@@ -20,9 +20,6 @@ services:
     region: frankfurt
     rootDir: ai-service
     healthCheckPath: /health
-    envVars:
-      - key: CHAT_BACKEND
-        value: rule_based
 
   # --- Spring Boot backend ----------------------------------------------------
   - type: web

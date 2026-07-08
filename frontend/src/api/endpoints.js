@@ -42,10 +42,6 @@ export const hbscApi = {
   comparison: () => api.get('/hbsc/comparison').then((r) => r.data),
 };
 
-export const chatApi = {
-  send: (message, lang) => api.post('/chat', { message, lang }).then((r) => r.data),
-};
-
 export const notificationsApi = {
   list: () => api.get('/notifications').then((r) => r.data),
   unread: () => api.get('/notifications/unread-count').then((r) => r.data),

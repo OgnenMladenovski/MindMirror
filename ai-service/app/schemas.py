@@ -129,18 +129,3 @@ class AvatarResponse(BaseModel):
     attributes: dict[str, float | bool]
     caption_en: str
     caption_mk: str
-
-
-class ChatRequest(BaseModel):
-    message: str
-    history: list[DailyEntry] = Field(default_factory=list)
-    scores: Optional[Scores] = None
-    lang: Lang = "en"
-
-
-class ChatResponse(BaseModel):
-    reply: str
-    reply_en: str
-    reply_mk: str
-    intent: str
-    backend: str

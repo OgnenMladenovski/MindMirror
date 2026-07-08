@@ -108,20 +108,4 @@ public final class AiDtos {
             @JsonProperty("model_version") String modelVersion,
             @JsonProperty("feature_importance") Map<String, Map<String, Double>> featureImportance
     ) { }
-
-    public record AiChatRequest(
-            String message,
-            List<AiDailyEntry> history,
-            AiScores scores,
-            String lang
-    ) { }
-
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public record AiChatResponse(
-            String reply,
-            @JsonProperty("reply_en") String replyEn,
-            @JsonProperty("reply_mk") String replyMk,
-            String intent,
-            String backend
-    ) { }
 }

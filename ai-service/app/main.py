@@ -6,7 +6,6 @@ Endpoints (per assignment spec):
   POST /recommend       personalised recommendations
   GET|POST /trends      automatically generated insights
   GET|POST /avatar-state digital-twin avatar state
-  POST /chat            rule-based wellbeing assistant
   GET  /health          liveness/readiness probe
 """
 from __future__ import annotations
@@ -15,7 +14,7 @@ from fastapi import FastAPI
 
 from .config import settings
 from .ml import store
-from .routers import analyze, avatar, chat, predict, recommend, trends
+from .routers import analyze, avatar, predict, recommend, trends
 
 app = FastAPI(
     title="MindMirror AI Service",
@@ -23,7 +22,7 @@ app = FastAPI(
     description="AI recommendation, prediction and analytics engine for MindMirror.",
 )
 
-for module in (analyze, predict, recommend, trends, avatar, chat):
+for module in (analyze, predict, recommend, trends, avatar):
     app.include_router(module.router)
 
 

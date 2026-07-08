@@ -3,8 +3,8 @@
 ## Components
 | Component | Tech | Responsibility |
 | --- | --- | --- |
-| **backend** | Spring Boot 3, Spring Security (JWT), Spring Data JPA, Flyway, PostgreSQL | Users/auth, daily logs, dashboard, challenges, achievements, avatar, statistics, HBSC comparison, notifications, chat proxy |
-| **ai-service** | FastAPI, scikit-learn, pandas, NumPy, joblib | Scoring, recommendations, trend insights, ML predictions, avatar state, rule-based chat |
+| **backend** | Spring Boot 3, Spring Security (JWT), Spring Data JPA, Flyway, PostgreSQL | Users/auth, daily logs, dashboard, challenges, achievements, avatar, statistics, HBSC comparison, notifications |
+| **ai-service** | FastAPI, scikit-learn, pandas, NumPy, joblib | Scoring, recommendations, trend insights, ML predictions, avatar state |
 | **db** | PostgreSQL 17 | Persistence |
 | **frontend** | React 19 (planned) | UI (dashboards, avatar, i18n MK/EN) |
 
@@ -34,7 +34,7 @@ data access simple and predictable.
 ## Bilingual strategy
 - **Static UI strings** → handled by the React app's i18n (next phase).
 - **Dynamic AI/text content** (recommendations, insights, challenges, achievements,
-  notifications, chat, avatar captions) → stored/returned in **both** `*_en` and `*_mk`
+  notifications, avatar captions) → stored/returned in **both** `*_en` and `*_mk`
   so locale can switch with no extra round-trip.
 
 ## AI / ML
@@ -42,7 +42,6 @@ data access simple and predictable.
 - Models (`app/ml/`) trained on synthetic-but-realistic data: RandomForest + GradientBoosting
   for tomorrow's mood/burnout/stress/sleep-quality and a RandomForest classifier for the
   recommended activity. Persisted via joblib; feature importances exposed at `/model-info`.
-- Chat is behind a `ChatBackend` interface (`rule_based` default; `openai` adapter seam).
 
 ## Security
 Stateless JWT (HMAC-SHA256). `JwtAuthFilter` authenticates each request; `/api/auth/**`

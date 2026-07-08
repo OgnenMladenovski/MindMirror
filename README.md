@@ -21,7 +21,6 @@ A web application where each student owns a digital-twin avatar that reflects th
 - **Daily Challenges** — One generated challenge per day, completed for experience points.
 - **Achievements** — Unlockable badges such as: 7 Healthy Days, Early Sleeper, Hydration Master, Stress Fighter, Fitness Hero and Mood Explorer.
 - **HBSC Comparison** — Each student's rolling averages compared against HBSC North Macedonia reference values.
-- **AI Chat Assistant** — A rule-based assistant that answers questions grounded in the student's own history.
 
 ---
 
@@ -45,9 +44,9 @@ The project has 3 independently deployable components:
 ```
 MindMirror
 ├── backend/          Spring Boot API (auth, logs, dashboard, challenges,
-│                     achievements, avatar, statistics, HBSC, chat)
+│                     achievements, avatar, statistics, HBSC)
 ├── ai-service/       FastAPI microservice (scoring, recommendations,
-│                     predictions, trends, avatar state, chat) + ML models
+│                     predictions, trends, avatar state) + ML models
 ├── frontend/         React application (dashboards, digital-twin avatar,
 │                     English / Macedonian interface)
 └── docs/             Architecture, API catalog, HBSC data provenance
@@ -104,7 +103,7 @@ AI Analysis (scores, recommendations, avatar, prediction)
    ↓
 Dashboard (cards, charts, avatar)
    ↓
-Challenges / Achievements / HBSC comparison / AI chat
+Challenges / Achievements / HBSC comparison
 ```
 
 ---
@@ -122,7 +121,6 @@ Challenges / Achievements / HBSC comparison / AI chat
 | Challenges | `/challenges` | Daily challenge and history |
 | Achievements | `/achievements` | Achievement badges and progress |
 | HBSC Compare | `/hbsc` | Comparison with HBSC North Macedonia averages |
-| Chat | `/chat` | AI wellbeing assistant |
 | Profile | `/profile` | User profile |
 | Settings | `/settings` | Language and theme |
 | Admin | `/admin` | Aggregated statistics (admin only) |

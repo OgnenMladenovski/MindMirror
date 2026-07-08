@@ -1,8 +1,7 @@
 # MindMirror AI Service (FastAPI)
 
-AI microservice for scoring, recommendations, trend insights, ML predictions and a
-rule-based wellbeing chat assistant. All user-facing text is returned in **English and
-Macedonian**.
+AI microservice for scoring, recommendations, trend insights and ML predictions.
+All user-facing text is returned in **English and Macedonian**.
 
 ## Endpoints
 | Method | Path | Purpose |
@@ -12,7 +11,6 @@ Macedonian**.
 | POST | `/recommend` | Trend-aware personalised recommendations |
 | GET/POST | `/trends` | Automatically generated insights |
 | GET/POST | `/avatar-state` | Digital-twin avatar state |
-| POST | `/chat` | Rule-based assistant grounded in the user's history |
 | GET | `/health` | Health probe |
 | GET | `/model-info` | Model version, metrics, feature importances |
 
@@ -31,7 +29,3 @@ python -m app.ml.train            # train + persist models to model_store/
 uvicorn app.main:app --reload --port 8000
 pytest                            # run the test suite
 ```
-
-## Chat backend
-Default `CHAT_BACKEND=rule_based` (offline). Set `CHAT_BACKEND=openai` and `OPENAI_API_KEY`
-to use the pluggable OpenAI adapter seam (`app/core/chatbot.py`).

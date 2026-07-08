@@ -1,7 +1,7 @@
 # MindMirror Frontend (React + Vite)
 
 React client for MindMirror: dashboards, the digital-twin avatar, daily check-in, analytics,
-challenges, achievements, HBSC comparison, AI chat — with an **English / Македонски** toggle.
+challenges, achievements and HBSC comparison — with an **English / Македонски** toggle.
 
 ## Stack
 - React 18 + Vite + React Router
@@ -33,7 +33,7 @@ src/
 ├── components/     Layout, GlassCard, MetricCard, AvatarView, charts, …
 ├── hooks/          useAsync, useLocalized (picks *_en / *_mk)
 ├── locales/        en.json, mk.json
-├── pages/          Landing, Login, Dashboard, CheckIn, Avatar, Hbsc, Chat, Admin, …
+├── pages/          Landing, Login, Dashboard, CheckIn, Avatar, Hbsc, Admin, …
 └── theme.js        MUI glassmorphism theme
 ```
 

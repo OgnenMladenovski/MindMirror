@@ -43,4 +43,4 @@ def test_sleep_score_peaks_near_ideal():
 
 def test_compact_shape_matches_spec():
     s = scoring.analyze(_entry())
-    assert set(s.compact.keys()) == {"burnout", "sleep", "social", "wellness", "risk"}
+    assert set(s.compact_dict().keys()) == {"burnout", "sleep", "social", "wellness", "risk"}

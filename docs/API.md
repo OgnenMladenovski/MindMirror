@@ -32,7 +32,6 @@ All `/api/**` routes except `/api/auth/**` and `/api/hbsc/reference` require a
 | GET | `/api/notifications` | List notifications |
 | GET | `/api/notifications/unread-count` | Unread count |
 | POST | `/api/notifications/{id}/read` | Mark read |
-| POST | `/api/chat` | Ask the AI wellbeing assistant |
 
 ## FastAPI AI service
 | Method | Path | Description |
@@ -42,7 +41,6 @@ All `/api/**` routes except `/api/auth/**` and `/api/hbsc/reference` require a
 | POST | `/recommend` | Trend-aware recommendations |
 | GET/POST | `/trends` | Automatically generated insights |
 | GET/POST | `/avatar-state` | Avatar state from scores/entry |
-| POST | `/chat` | Rule-based assistant |
 | GET | `/health` | Health probe |
 | GET | `/model-info` | Model version, metrics, feature importances |
 

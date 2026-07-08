@@ -12,7 +12,6 @@ import FaceRetouchingNaturalRoundedIcon from '@mui/icons-material/FaceRetouching
 import FlagRoundedIcon from '@mui/icons-material/FlagRounded';
 import EmojiEventsRoundedIcon from '@mui/icons-material/EmojiEventsRounded';
 import PublicRoundedIcon from '@mui/icons-material/PublicRounded';
-import ChatRoundedIcon from '@mui/icons-material/ChatRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded';
@@ -35,7 +34,6 @@ const NAV = [
   { to: '/challenges', key: 'challenges', icon: <FlagRoundedIcon /> },
   { to: '/achievements', key: 'achievements', icon: <EmojiEventsRoundedIcon /> },
   { to: '/hbsc', key: 'hbsc', icon: <PublicRoundedIcon /> },
-  { to: '/chat', key: 'chat', icon: <ChatRoundedIcon /> },
 ];
 
 export default function Layout() {

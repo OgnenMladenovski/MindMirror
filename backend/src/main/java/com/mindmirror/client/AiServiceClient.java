@@ -40,10 +40,6 @@ public class AiServiceClient {
         return post("/predict", new AiHistoryRequest(history, lang), AiPredictResponse.class);
     }
 
-    public AiChatResponse chat(AiChatRequest request) {
-        return post("/chat", request, AiChatResponse.class);
-    }
-
     public boolean isHealthy() {
         try {
             client.get().uri("/health").retrieve().toBodilessEntity();
