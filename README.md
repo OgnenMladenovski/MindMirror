@@ -1,12 +1,12 @@
 # MindMirror - an AI Digital Twin for tracking Student Wellbeing
 
-> HBSC-inspired platform for monitoring the physical and mental wellbeing of students, with reference data for North Macedonia.
+> HBSC-inspired platform for monitoring the physical and mental wellbeing of students, with reference data for Macedonia.
 
 ---
 
 ## Overview
 
-A web application where each student owns a digital-twin avatar that reflects their physical and mental wellbeing. Students log their daily habits like: sleep, mood, stress, physical activity, screen time, water intake, study hours, social time, energy and nutrition. A FastAPI microservice scores each entry, predicts the next day with machine-learning models, and generates personalised recommendations. The avatar changes with the student's lifestyle: healthy habits make it thrive, while unhealthy ones make it tired and stressed. The application also compares each student's habits against HBSC reference data for North Macedonia.
+A web application where each student owns a digital-twin avatar that reflects their physical and mental wellbeing. Students log their daily habits like: sleep, mood, stress, physical activity, screen time, water intake, study hours, social time, energy and nutrition. A FastAPI microservice scores each entry, predicts the next day with machine-learning models, and generates personalised recommendations. The avatar changes with the student's lifestyle: healthy habits make it thrive, while unhealthy ones make it tired and stressed. The application also compares each student's habits against HBSC reference data for Macedonia.
 
 ---
 
@@ -20,7 +20,7 @@ A web application where each student owns a digital-twin avatar that reflects th
 - **Dashboard** — Summary cards and charts: mood line, sleep area, screen-time bar, wellness radar, activity distribution and a wellness calendar heatmap.
 - **Daily Challenges** — One generated challenge per day, completed for experience points.
 - **Achievements** — Unlockable badges such as: 7 Healthy Days, Early Sleeper, Hydration Master, Stress Fighter, Fitness Hero and Mood Explorer.
-- **HBSC Comparison** — Each student's rolling averages compared against HBSC North Macedonia reference values.
+- **HBSC Comparison** — Each student's rolling averages compared against HBSC Macedonia reference values.
 
 ---
 
@@ -120,7 +120,7 @@ Challenges / Achievements / HBSC comparison
 | Avatar | `/avatar` | Digital-twin avatar and attributes |
 | Challenges | `/challenges` | Daily challenge and history |
 | Achievements | `/achievements` | Achievement badges and progress |
-| HBSC Compare | `/hbsc` | Comparison with HBSC North Macedonia averages |
+| HBSC Compare | `/hbsc` | Comparison with HBSC Macedonia averages |
 | Profile | `/profile` | User profile |
 | Settings | `/settings` | Language and theme |
 | Admin | `/admin` | Aggregated statistics (admin only) |
