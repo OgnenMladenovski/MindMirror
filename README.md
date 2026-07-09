@@ -10,9 +10,9 @@ A web application where each student owns a digital-twin avatar that reflects th
 
 ---
 
-## Demo
+## Preview
 
-- [Preview](https://www.youtube.com/watch?v=iv1J9st93B0)
+- [YouTube](https://www.youtube.com/watch?v=iv1J9st93B0)
 
 ---
 
