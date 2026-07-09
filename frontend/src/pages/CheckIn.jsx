@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Box, Typography, Slider, TextField, Button, Chip, Stack, Alert, Divider,
+  Box, Typography, Slider, Button, Chip, Stack, Alert, Divider,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -64,7 +64,7 @@ export default function CheckIn() {
           <Stack spacing={2.5}>
             {error && <Alert severity="error">{t('auth.failed')}</Alert>}
             <SliderField label={t('checkin.sleep')} value={form.sleepHours} onChange={set('sleepHours')} min={0} max={12} step={0.5} unit="h" />
-            <SliderField label={`${t('checkin.mood')} ${moodEmoji(form.moodScore)}`} value={form.moodScore} onChange={set('moodScore')} min={1} max={10} step={1} />
+            <SliderField label={t('checkin.mood')} value={form.moodScore} onChange={set('moodScore')} min={1} max={10} step={1} />
             <SliderField label={t('checkin.stress')} value={form.stressLevel} onChange={set('stressLevel')} min={1} max={10} step={1} />
             <SliderField label={t('checkin.energy')} value={form.energyLevel} onChange={set('energyLevel')} min={1} max={10} step={1} />
             <SliderField label={t('checkin.nutrition')} value={form.nutritionQuality} onChange={set('nutritionQuality')} min={1} max={10} step={1} />
@@ -81,10 +81,6 @@ export default function CheckIn() {
         </GlassCard>
       </Box>
 
-      <Box sx={{ mt: 2.5 }}>
-        <TextField label={t('checkin.notes')} value={form.notes} onChange={(e) => set('notes')(e.target.value)}
-          fullWidth multiline minRows={2} />
-      </Box>
       <Button variant="contained" size="large" sx={{ mt: 2.5 }} onClick={submit} disabled={busy}>
         {busy ? t('checkin.saving') : t('checkin.submit')}
       </Button>
@@ -106,7 +102,9 @@ function Results({ result, pick, t }) {
       <Box sx={{ display: 'grid', gap: 2.5, gridTemplateColumns: { xs: '1fr', md: '1fr 2fr' } }}>
         {result.avatar && (
           <GlassCard sx={{ textAlign: 'center' }}>
-            <AvatarView state={result.avatar.state} attributes={parse(result.avatar.attributesJson)} size={170} />
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <AvatarView state={result.avatar.state} attributes={parse(result.avatar.attributesJson)} size={170} />
+            </Box>
             <Chip label={result.avatar.state.replace('_', ' ')} color="primary" size="small" sx={{ mt: 1 }} />
             <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>{pick(result.avatar, 'caption')}</Typography>
           </GlassCard>

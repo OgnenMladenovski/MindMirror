@@ -26,11 +26,11 @@ export default function Analytics() {
               <GlassCard>
                 <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>{t('analytics.prediction')}</Typography>
                 <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr 1fr', md: 'repeat(5,1fr)' } }}>
-                  <Stat label={t('analytics.moodTomorrow')} value={`${data.prediction.moodTomorrow?.toFixed(1)}/10`} color="#ff8fab" />
-                  <Stat label={t('analytics.burnoutTomorrow')} value={Math.round(data.prediction.burnoutTomorrow)} color="#f0616d" />
+                  <Stat label={t('analytics.moodTomorrow')} value={`${data.prediction.moodTomorrow?.toFixed(1)}/10`} color="#f9b4c6" />
+                  <Stat label={t('analytics.burnoutTomorrow')} value={Math.round(data.prediction.burnoutTomorrow)} color="#ef7a72" />
                   <Stat label={t('analytics.stressTomorrow')} value={`${data.prediction.stressTomorrow?.toFixed(1)}/10`} color="#f7b955" />
-                  <Stat label={t('analytics.sleepTomorrow')} value={Math.round(data.prediction.sleepQualityTomorrow)} color="#5aa9ff" />
-                  <Stat label={t('analytics.recommendedActivity')} value={pick(data.prediction, 'recommendedActivity')} color="#31d0aa" small />
+                  <Stat label={t('analytics.sleepTomorrow')} value={Math.round(data.prediction.sleepQualityTomorrow)} color="#6cc4e8" />
+                  <Stat label={t('analytics.recommendedActivity')} value={pick(data.prediction, 'recommendedActivity')} color="#6cc4e8" small />
                 </Box>
                 <Typography variant="caption" color="text.secondary" sx={{ mt: 1.5, display: 'block' }}>
                   {t('analytics.model')}: {data.prediction.modelVersion}

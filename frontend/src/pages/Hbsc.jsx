@@ -49,9 +49,6 @@ export default function Hbsc() {
                   ))}
                 </TableBody>
               </Table>
-              <Typography variant="caption" color="text.secondary" sx={{ mt: 1.5, display: 'block' }}>
-                {t('hbsc.note')}
-              </Typography>
             </GlassCard>
           </Box>
         )}

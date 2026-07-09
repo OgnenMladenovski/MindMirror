@@ -27,7 +27,7 @@ export default function Dashboard() {
     Promise.all([
       dashboardApi.get(),
       avatarApi.current(),
-      recommendationsApi.latest(3),
+      recommendationsApi.latest(1),
       challengesApi.today().catch(() => null),
     ]).then(([dash, avatar, recs, challenge]) => ({ dash, avatar, recs, challenge }))
   );
@@ -60,7 +60,7 @@ function Content({ data, pick, t }) {
             <Typography variant="body2" color="text.secondary">{t('common.level')} {dash.level}</Typography></Stack>
           <Stack direction="row" spacing={1} alignItems="center"><BoltRoundedIcon sx={{ color: '#f7b955' }} />
             <Typography variant="body2" color="text.secondary">{dash.totalXp} {t('common.xp')}</Typography></Stack>
-          <Stack direction="row" spacing={1} alignItems="center"><LocalFireDepartmentRoundedIcon sx={{ color: '#ff8fab' }} />
+          <Stack direction="row" spacing={1} alignItems="center"><LocalFireDepartmentRoundedIcon sx={{ color: '#f9b4c6' }} />
             <Typography variant="body2" color="text.secondary">{dash.currentStreak} {t('common.days')}</Typography></Stack>
         </GlassCard>
       </Box>
@@ -79,7 +79,9 @@ function Content({ data, pick, t }) {
 
         <Box sx={{ display: 'grid', gap: 2.5, alignContent: 'start' }}>
           <GlassCard sx={{ textAlign: 'center' }}>
-            <AvatarView state={avatar.state} attributes={parseAttrs(avatar.attributesJson)} size={180} />
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <AvatarView state={avatar.state} attributes={parseAttrs(avatar.attributesJson)} size={180} />
+            </Box>
             <Chip label={avatar.state.replace('_', ' ')} color="primary" size="small" sx={{ mt: 1 }} />
             <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>{pick(avatar, 'caption')}</Typography>
           </GlassCard>

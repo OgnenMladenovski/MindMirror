@@ -17,12 +17,9 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import TranslateRoundedIcon from '@mui/icons-material/TranslateRounded';
-import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
-import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
-import { useColorMode } from '../context/ColorModeContext';
 
 const WIDTH = 258;
 
@@ -43,7 +40,6 @@ export default function Layout() {
   const [anchor, setAnchor] = useState(null);
   const [langAnchor, setLangAnchor] = useState(null);
   const { user, logout } = useAuth();
-  const { mode, toggle } = useColorMode();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -60,7 +56,7 @@ export default function Layout() {
   const drawer = (
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', p: 1.5 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2, px: 1, py: 2 }}>
-        <Box sx={{ width: 38, height: 38, borderRadius: 2.4, background: 'linear-gradient(135deg,#7c6cf0,#31d0aa)', display: 'grid', placeItems: 'center', fontSize: 20 }}>🪞</Box>
+        <Box sx={{ width: 38, height: 38, borderRadius: 2.4, background: 'linear-gradient(135deg,#f6a24b,#6cc4e8)', display: 'grid', placeItems: 'center', fontSize: 20 }}>🪞</Box>
         <Box>
           <Typography sx={{ fontWeight: 800, lineHeight: 1 }}>{t('app.name')}</Typography>
           <Typography variant="caption" color="text.secondary">{t('app.tagline')}</Typography>
@@ -99,11 +95,8 @@ export default function Layout() {
             <MenuItem selected={i18n.language === 'en'} onClick={() => setLang('en')}>🇬🇧 English</MenuItem>
             <MenuItem selected={i18n.language === 'mk'} onClick={() => setLang('mk')}>🇲🇰 Македонски</MenuItem>
           </Menu>
-          <Tooltip title={mode === 'dark' ? 'Light' : 'Dark'}>
-            <IconButton onClick={toggle}>{mode === 'dark' ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}</IconButton>
-          </Tooltip>
           <IconButton onClick={(e) => setAnchor(e.currentTarget)}>
-            <Avatar sx={{ width: 34, height: 34, background: 'linear-gradient(135deg,#7c6cf0,#ff8fab)', fontSize: 15 }}>
+            <Avatar sx={{ width: 34, height: 34, background: 'linear-gradient(135deg,#f6a24b,#ffcf5c)', fontSize: 15 }}>
               {(user?.fullName || user?.username || '?').charAt(0).toUpperCase()}
             </Avatar>
           </IconButton>
@@ -143,7 +136,7 @@ function NavRow({ n, active, label, onClick }) {
   return (
     <ListItemButton selected={active} onClick={onClick}
       sx={{ borderRadius: 3, mb: 0.5,
-        '&.Mui-selected': { background: 'linear-gradient(135deg, rgba(124,108,240,0.22), rgba(49,208,170,0.18))' } }}>
+        '&.Mui-selected': { background: 'linear-gradient(135deg, rgba(246,162,75,0.22), rgba(108,196,232,0.18))' } }}>
       <ListItemIcon sx={{ minWidth: 40, color: active ? 'primary.main' : 'text.secondary' }}>{n.icon}</ListItemIcon>
       <ListItemText primary={label} primaryTypographyProps={{ fontWeight: active ? 700 : 500 }} />
     </ListItemButton>

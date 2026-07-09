@@ -119,7 +119,7 @@ def generate(history: list[DailyEntry]) -> list[Recommendation]:
         recs.append(Recommendation(
             category="positive", severity="info",
             text_en="Great balance this week — keep up your healthy routine! Your avatar is thriving.",
-            text_mk="Одличен баланс оваа недела — продолжи со здравата рутина! Твојот аватар цвета.",
+            text_mk="Одличен баланс оваа недела, продолжи со здравата рутина! Твојот аватар е во одлично расположение.",
         ))
 
     return recs

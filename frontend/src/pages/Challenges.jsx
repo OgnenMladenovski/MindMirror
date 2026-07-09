@@ -26,7 +26,7 @@ export default function Challenges() {
       <AsyncBlock loading={loading} error={error} onRetry={reload}>
         {data && (
           <Box sx={{ display: 'grid', gap: 2.5 }}>
-            <GlassCard sx={{ background: 'linear-gradient(135deg, rgba(124,108,240,0.18), rgba(49,208,170,0.14))' }}>
+            <GlassCard sx={{ background: 'linear-gradient(135deg, rgba(246,162,75,0.18), rgba(108,196,232,0.14))' }}>
               <Typography variant="overline" color="text.secondary">{t('challenges.today')}</Typography>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
                 <Box>

@@ -30,7 +30,7 @@ export default function Profile() {
       <PageHeader title={t('profile.title')} />
       <Box sx={{ display: 'grid', gap: 2.5, gridTemplateColumns: { xs: '1fr', md: '1fr 2fr' } }}>
         <GlassCard sx={{ textAlign: 'center', py: 4 }}>
-          <Avatar sx={{ width: 96, height: 96, mx: 'auto', fontSize: 40, background: 'linear-gradient(135deg,#7c6cf0,#ff8fab)' }}>
+          <Avatar sx={{ width: 96, height: 96, mx: 'auto', fontSize: 40, background: 'linear-gradient(135deg,#f6a24b,#f9b4c6)' }}>
             {(user?.fullName || user?.username || '?').charAt(0).toUpperCase()}
           </Avatar>
           <Typography variant="h6" sx={{ mt: 2 }}>{user?.fullName || user?.username}</Typography>

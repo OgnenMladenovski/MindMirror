@@ -10,9 +10,9 @@ from . import scoring
 
 _STATE_META = {
     "EXCELLENT": ("glow", "You're thriving — keep it up!", "Цветаш — само така продолжи!"),
-    "HAPPY": ("smiling", "Feeling good and balanced.", "Се чувствуваш добро и избалансирано."),
+    "HAPPY": ("smiling", "Feeling good and balanced.", "Се чувствуваш добро и балансирано."),
     "NEUTRAL": ("breathing", "Doing okay — small tweaks could help.", "Одиш добро — мали промени би помогнале."),
-    "STRESSED": ("sad", "A bit stressed — take a breather.", "Малку си под стрес — здивни."),
+    "STRESSED": ("sad", "A bit stressed — take a breather.", "Малку си под стрес, здивни."),
     "BURNED_OUT": ("crying", "Signs of burnout — please slow down.", "Знаци на исцрпеност — забави малку."),
     "EXHAUSTED": ("sleeping", "Very low energy — rest is a priority.", "Многу ниска енергија — одморот е приоритет."),
 }

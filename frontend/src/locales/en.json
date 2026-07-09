@@ -16,7 +16,6 @@
   "landing": {
     "hero": "Meet your MindMirror",
     "sub": "Log your day, and your digital twin reflects how you really feel. AI-powered scores, predictions and personalised advice — inspired by the HBSC study.",
-    "trust": "Inspired by the HBSC study in Macedonia",
     "getStarted": "Get started",
     "login": "Log in",
     "metricsTitle": "One check-in captures your whole day",
@@ -38,8 +37,7 @@
     "statesSub": "From thriving to exhausted — it changes with your lifestyle.",
     "states": { "EXCELLENT": "Excellent", "HAPPY": "Happy", "NEUTRAL": "Neutral", "STRESSED": "Stressed", "BURNED_OUT": "Burned out", "EXHAUSTED": "Exhausted" },
     "ctaTitle": "Ready to meet your MindMirror?",
-    "ctaSub": "Create an account in under a minute — a demo account is ready too.",
-    "footer": "HBSC-inspired student wellbeing platform"
+    "ctaSub": "Create an account in under a minute — a demo account is ready too."
   },
   "auth": {
     "welcomeBack": "Welcome back", "createAccount": "Create your account",
@@ -60,6 +58,7 @@
     "title": "Dashboard", "greeting": "Hi {{name}} 👋", "subtitle": "Here's how you're doing.",
     "mood30": "Mood — last 30 days", "sleepTrend": "Sleep trend", "screenTime": "Screen time",
     "wellnessDim": "Wellness dimensions", "activityDist": "How your day is spent",
+    "heatLegend": { "excellent": "Excellent", "normal": "Normal", "poor": "Poor", "critical": "Critical" },
     "moodCalendar": "Wellness calendar", "quickCheckin": "Daily check-in",
     "quickCheckinSub": "Log today to update your avatar."
   },
@@ -104,7 +103,7 @@
   },
   "settings": {
     "title": "Settings", "language": "Language", "english": "English", "macedonian": "Македонски",
-    "appearance": "Appearance", "darkMode": "Dark mode", "saved": "Settings saved"
+    "saved": "Settings saved"
   },
   "admin": {
     "title": "Admin Dashboard", "totalUsers": "Users", "totalLogs": "Total logs",

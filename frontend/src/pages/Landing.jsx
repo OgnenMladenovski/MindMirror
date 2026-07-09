@@ -61,7 +61,7 @@ export default function Landing() {
       <Box sx={{ maxWidth: 1120, mx: 'auto', px: { xs: 2, md: 4 }, py: 2.5,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2 }}>
-          <Box sx={{ width: 40, height: 40, borderRadius: 2.4, background: 'linear-gradient(135deg,#7c6cf0,#31d0aa)', display: 'grid', placeItems: 'center', fontSize: 22 }}>🪞</Box>
+          <Box sx={{ width: 40, height: 40, borderRadius: 2.4, background: 'linear-gradient(135deg,#f6a24b,#6cc4e8)', display: 'grid', placeItems: 'center', fontSize: 22 }}>🪞</Box>
           <Typography variant="h6" sx={{ fontWeight: 800 }}>{t('app.name')}</Typography>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -78,7 +78,6 @@ export default function Landing() {
       <Box sx={{ maxWidth: 1120, mx: 'auto', px: { xs: 2, md: 4 }, pt: { xs: 3, md: 6 }, pb: { xs: 6, md: 9 } }}>
         <Box sx={{ display: 'grid', gap: 4, gridTemplateColumns: { xs: '1fr', md: '1.05fr 0.95fr' }, alignItems: 'center' }}>
           <Box component={motion.div} initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.55 }}>
-            <Chip label={t('landing.trust')} size="small" sx={{ mb: 2.5, fontWeight: 600 }} />
             <Typography variant="h2" sx={{ fontSize: { xs: 40, md: 60 }, lineHeight: 1.04, mb: 2 }}>
               {t('landing.hero')}
             </Typography>
@@ -132,7 +131,7 @@ export default function Landing() {
           {steps.map((s, i) => (
             <GlassCard key={i} delay={i * 0.06} sx={{ p: 3 }}>
               <Box sx={{ width: 38, height: 38, borderRadius: '50%', mb: 1.5, display: 'grid', placeItems: 'center',
-                fontWeight: 800, color: '#fff', background: 'linear-gradient(135deg,#7c6cf0,#31d0aa)' }}>{i + 1}</Box>
+                fontWeight: 800, color: '#fff', background: 'linear-gradient(135deg,#f6a24b,#6cc4e8)' }}>{i + 1}</Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>{s.title}</Typography>
               <Typography variant="body2" color="text.secondary">{s.body}</Typography>
             </GlassCard>
@@ -146,7 +145,9 @@ export default function Landing() {
         <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: { xs: '1fr 1fr', sm: 'repeat(3,1fr)', md: 'repeat(6,1fr)' } }}>
           {STATES.map(([state, attrs], i) => (
             <GlassCard key={state} delay={i * 0.05} sx={{ p: 2, textAlign: 'center' }}>
-              <AvatarView state={state} attributes={attrs} size={104} />
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <AvatarView state={state} attributes={attrs} size={104} />
+              </Box>
               <Chip size="small" label={t(`landing.states.${state}`)}
                 sx={{ mt: 1, bgcolor: (avatarStateColor[state] || '#888') + '22',
                   border: `1px solid ${avatarStateColor[state] || '#888'}`, fontWeight: 600 }} />
@@ -158,16 +159,13 @@ export default function Landing() {
       {/* Final CTA */}
       <Section>
         <GlassCard sx={{ p: { xs: 4, md: 6 }, textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(124,108,240,0.20), rgba(49,208,170,0.16))' }}>
+          background: 'linear-gradient(135deg, rgba(246,162,75,0.20), rgba(108,196,232,0.16))' }}>
           <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5 }}>{t('landing.ctaTitle')}</Typography>
           <Typography color="text.secondary" sx={{ mb: 3, maxWidth: 560, mx: 'auto' }}>{t('landing.ctaSub')}</Typography>
           <Stack direction="row" spacing={2} justifyContent="center">
             <Button component={RouterLink} to="/register" variant="contained" size="large">{t('landing.getStarted')}</Button>
             <Button component={RouterLink} to="/login" variant="outlined" size="large">{t('landing.login')}</Button>
           </Stack>
-          <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 3 }}>
-            {t('landing.footer')}
-          </Typography>
         </GlassCard>
       </Section>
     </Box>

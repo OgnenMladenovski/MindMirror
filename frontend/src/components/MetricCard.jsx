@@ -5,13 +5,13 @@ import GlassCard from './GlassCard';
 import { brandColors } from '../theme';
 
 const ACCENTS = {
-  overall_wellness: '#7c6cf0',
-  sleep: '#5aa9ff',
-  burnout: '#f0616d',
-  social: '#31d0aa',
-  mood: '#ff8fab',
+  overall_wellness: '#f6a24b',
+  sleep: '#6cc4e8',
+  burnout: '#ef7a72',
+  social: '#6cc4e8',
+  mood: '#f9b4c6',
   stress: '#f7b955',
-  activity: '#b088ff',
+  activity: '#f6c26b',
 };
 
 export default function MetricCard({ card, delay = 0 }) {

@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { avatarStateColor } from '../theme';
 
 /**
  * The digital-twin avatar. Its face, colour and animation change with the
  * wellbeing state (EXCELLENT / HAPPY / NEUTRAL / STRESSED / BURNED_OUT / EXHAUSTED).
  */
 export default function AvatarView({ state = 'NEUTRAL', attributes = {}, size = 220 }) {
-  const color = avatarStateColor[state] || '#f7b955';
+  // Avatar body always uses the brand apricot (matches the numbered step badges).
+  const color = '#f6a24b';
   const smile = clamp(num(attributes.smile, 0.5));
   const glow = attributes.glow === true || state === 'EXCELLENT' || state === 'HAPPY';
   const darkCircles = attributes.dark_circles === true;
@@ -87,8 +87,8 @@ export default function AvatarView({ state = 'NEUTRAL', attributes = {}, size = 
           {/* cheeks when happy */}
           {(state === 'EXCELLENT' || state === 'HAPPY') && (
             <>
-              <circle cx="72" cy="115" r="7" fill="#ff8fab" opacity="0.5" />
-              <circle cx="128" cy="115" r="7" fill="#ff8fab" opacity="0.5" />
+              <circle cx="72" cy="115" r="7" fill="#f9b4c6" opacity="0.5" />
+              <circle cx="128" cy="115" r="7" fill="#f9b4c6" opacity="0.5" />
             </>
           )}
 
@@ -96,7 +96,7 @@ export default function AvatarView({ state = 'NEUTRAL', attributes = {}, size = 
           {crying && (
             <motion.path
               d="M120,104 q4,10 0,16 q-4,-6 0,-16"
-              fill="#5aa9ff"
+              fill="#6cc4e8"
               animate={{ y: [0, 18], opacity: [0.9, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: 'easeIn' }}
             />
@@ -106,7 +106,7 @@ export default function AvatarView({ state = 'NEUTRAL', attributes = {}, size = 
           {stressed && !crying && (
             <motion.path
               d="M150,74 q4,10 0,16 q-4,-6 0,-16"
-              fill="#5aa9ff"
+              fill="#6cc4e8"
               animate={{ y: [0, 14], opacity: [0.9, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeIn' }}
             />

@@ -23,7 +23,9 @@ export default function AvatarPage() {
         {data && (
           <Box sx={{ display: 'grid', gap: 2.5, gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' } }}>
             <GlassCard sx={{ textAlign: 'center', py: 4 }}>
-              <AvatarView state={data.current.state} attributes={parse(data.current.attributesJson)} size={260} />
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <AvatarView state={data.current.state} attributes={parse(data.current.attributesJson)} size={260} />
+              </Box>
               <Chip label={data.current.state.replace('_', ' ')} color="primary" sx={{ mt: 2 }} />
               <Typography variant="body1" color="text.secondary" sx={{ mt: 1.5 }}>{pick(data.current, 'caption')}</Typography>
             </GlassCard>
@@ -34,8 +36,6 @@ export default function AvatarPage() {
                 <Attr label={t('avatar.energy')} value={num(parse(data.current.attributesJson).energy)} />
                 <Attr label={t('avatar.smile')} value={num(parse(data.current.attributesJson).smile)} />
                 <Attr label={t('avatar.stress')} value={num(parse(data.current.attributesJson).stress)} invert />
-                <BoolAttr label={t('avatar.glow')} value={parse(data.current.attributesJson).glow} t={t} />
-                <BoolAttr label={t('avatar.darkCircles')} value={parse(data.current.attributesJson).dark_circles} t={t} />
               </Stack>
 
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mt: 3, mb: 1.5 }}>{t('avatar.history')}</Typography>
@@ -63,15 +63,6 @@ function Attr({ label, value, invert }) {
       </Box>
       <LinearProgress variant="determinate" value={pct}
         color={invert ? (pct > 60 ? 'error' : 'warning') : 'success'} sx={{ height: 8, borderRadius: 4 }} />
-    </Box>
-  );
-}
-
-function BoolAttr({ label, value, t }) {
-  return (
-    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Typography variant="body2">{label}</Typography>
-      <Chip size="small" label={value ? t('avatar.yes') : t('avatar.no')} color={value ? 'primary' : 'default'} />
     </Box>
   );
 }

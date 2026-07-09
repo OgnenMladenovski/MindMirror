@@ -134,7 +134,7 @@ public class DashboardService {
             cards.add(new MetricCard("burnout", "Burnout", "Исцрпеност",
                     round1(latest.getBurnoutIndex()), "/100",
                     prev == null ? null : round1(latest.getBurnoutIndex() - prev.getBurnoutIndex())));
-            cards.add(new MetricCard("social", "Social Score", "Социјален резултат",
+            cards.add(new MetricCard("social", "Social Score", "Социјален индекс",
                     round1(latest.getSocialBalanceScore()), "/100",
                     prev == null ? null : round1(latest.getSocialBalanceScore() - prev.getSocialBalanceScore())));
         }
@@ -157,7 +157,7 @@ public class DashboardService {
         return List.of(
                 new Dimension("sleep", "Sleep", "Спиење", round1(latest.getSleepScore())),
                 new Dimension("wellbeing", "Wellbeing", "Благосостојба", round1(latest.getWellbeingScore())),
-                new Dimension("social", "Social", "Социјално", round1(latest.getSocialBalanceScore())),
+                new Dimension("social", "Social", "Социјализација", round1(latest.getSocialBalanceScore())),
                 new Dimension("productivity", "Productivity", "Продуктивност", round1(latest.getProductivityScore())),
                 new Dimension("resilience", "Low Burnout", "Ниска исцрпеност", round1(100 - latest.getBurnoutIndex())),
                 new Dimension("mood", "Mood", "Расположение", latestLog == null ? 0 : latestLog.getMoodScore() * 10.0)

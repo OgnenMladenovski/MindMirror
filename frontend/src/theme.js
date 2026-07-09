@@ -1,30 +1,23 @@
 import { createTheme } from '@mui/material/styles';
 
-// MindMirror glassmorphism theme — soft gradients, rounded translucent cards.
+// MindMirror summer theme — soft pastel yellows, oranges and light blues.
 const brand = {
-  primary: '#7c6cf0',   // periwinkle
-  secondary: '#31d0aa', // mint
-  accent: '#ff8fab',    // blossom
+  primary: '#f6a24b',   // warm apricot
+  secondary: '#6cc4e8', // sky blue
+  accent: '#ffcf5c',    // pastel yellow
 };
 
-export const makeTheme = (mode) =>
+export const makeTheme = () =>
   createTheme({
     palette: {
-      mode,
+      mode: 'light',
       primary: { main: brand.primary },
       secondary: { main: brand.secondary },
-      success: { main: '#31d0aa' },
-      warning: { main: '#f7b955' },
-      error: { main: '#f0616d' },
-      ...(mode === 'dark'
-        ? {
-            background: { default: '#0d0f1a', paper: 'rgba(26, 29, 46, 0.72)' },
-            text: { primary: '#eef0fb', secondary: '#a5abc9' },
-          }
-        : {
-            background: { default: '#eef1fb', paper: 'rgba(255, 255, 255, 0.72)' },
-            text: { primary: '#1c2033', secondary: '#5a6180' },
-          }),
+      success: { main: '#5ac2a0' },
+      warning: { main: '#f6a24b' },
+      error: { main: '#ef7a72' },
+      background: { default: '#fff6e6', paper: 'rgba(255, 255, 255, 0.72)' },
+      text: { primary: '#4a3b28', secondary: '#8a7757' },
     },
     shape: { borderRadius: 18 },
     typography: {
@@ -44,9 +37,10 @@ export const makeTheme = (mode) =>
             minHeight: '100vh',
             backgroundAttachment: 'fixed',
             backgroundImage:
-              mode === 'dark'
-                ? 'radial-gradient(1200px 600px at 10% -10%, rgba(124,108,240,0.28), transparent 55%), radial-gradient(1000px 500px at 100% 0%, rgba(49,208,170,0.20), transparent 50%), linear-gradient(160deg, #0b0d18, #10132a 60%, #0b0d18)'
-                : 'radial-gradient(1200px 600px at 10% -10%, rgba(124,108,240,0.25), transparent 55%), radial-gradient(1000px 500px at 100% 0%, rgba(49,208,170,0.22), transparent 50%), linear-gradient(160deg, #eef1fb, #f6f2ff 60%, #eaf7f3)',
+              'radial-gradient(1200px 600px at 8% -10%, rgba(255,207,92,0.45), transparent 55%), ' +
+              'radial-gradient(1000px 520px at 100% 0%, rgba(246,162,75,0.32), transparent 52%), ' +
+              'radial-gradient(900px 500px at 50% 110%, rgba(108,196,232,0.28), transparent 55%), ' +
+              'linear-gradient(160deg, #fff6e6, #fff0d4 55%, #eaf6fc)',
           },
         },
       },
@@ -55,9 +49,7 @@ export const makeTheme = (mode) =>
           root: {
             backgroundImage: 'none',
             backdropFilter: 'blur(16px)',
-            border: mode === 'dark'
-              ? '1px solid rgba(255,255,255,0.08)'
-              : '1px solid rgba(255,255,255,0.6)',
+            border: '1px solid rgba(255,255,255,0.65)',
           },
         },
       },
@@ -65,9 +57,7 @@ export const makeTheme = (mode) =>
         styleOverrides: {
           root: {
             backdropFilter: 'blur(16px)',
-            boxShadow: mode === 'dark'
-              ? '0 12px 40px rgba(0,0,0,0.45)'
-              : '0 12px 40px rgba(90,97,128,0.15)',
+            boxShadow: '0 12px 40px rgba(214,150,70,0.16)',
           },
         },
       },
@@ -75,7 +65,8 @@ export const makeTheme = (mode) =>
         styleOverrides: {
           root: { borderRadius: 14, paddingInline: 18 },
           containedPrimary: {
-            backgroundImage: `linear-gradient(135deg, ${brand.primary}, #9d7bf5)`,
+            backgroundImage: `linear-gradient(135deg, ${brand.primary}, #ffcf5c)`,
+            color: '#4a3b28',
           },
         },
       },
@@ -84,21 +75,21 @@ export const makeTheme = (mode) =>
 
 export const brandColors = brand;
 
-// Consistent palette for charts / avatar states.
-export const chartColors = ['#7c6cf0', '#31d0aa', '#ff8fab', '#f7b955', '#5aa9ff', '#b088ff'];
+// Consistent palette for charts / avatar states — summer pastels.
+export const chartColors = ['#f6a24b', '#ffcf5c', '#6cc4e8', '#ef9a5c', '#5ac2a0', '#f9b4c6'];
 
 export const avatarStateColor = {
-  EXCELLENT: '#31d0aa',
-  HAPPY: '#5ad1a8',
-  NEUTRAL: '#f7b955',
-  STRESSED: '#ff9f6b',
-  BURNED_OUT: '#f0616d',
-  EXHAUSTED: '#b06bd8',
+  EXCELLENT: '#5ac2a0',
+  HAPPY: '#7fd0ae',
+  NEUTRAL: '#ffcf5c',
+  STRESSED: '#f6a24b',
+  BURNED_OUT: '#ef7a72',
+  EXHAUSTED: '#e08bc0',
 };
 
 export const heatColor = {
-  green: '#31d0aa',
-  yellow: '#f7b955',
-  orange: '#ff9f6b',
-  red: '#f0616d',
+  green: '#5ac2a0',
+  yellow: '#ffcf5c',
+  orange: '#f6a24b',
+  red: '#ef7a72',
 };

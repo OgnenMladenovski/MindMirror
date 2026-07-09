@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import { Box, Typography, ToggleButton, ToggleButtonGroup, Switch, Stack, Snackbar } from '@mui/material';
+import { Box, Typography, ToggleButton, ToggleButtonGroup, Snackbar } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import PageHeader from '../components/PageHeader';
 import GlassCard from '../components/GlassCard';
-import { useColorMode } from '../context/ColorModeContext';
 import { useAuth } from '../context/AuthContext';
 import { authApi } from '../api/endpoints';
 
 export default function Settings() {
   const { t, i18n } = useTranslation();
-  const { mode, toggle } = useColorMode();
   const { user, setUser } = useAuth();
   const [snack, setSnack] = useState(false);
 
@@ -34,14 +32,6 @@ export default function Settings() {
             <ToggleButton value="en">🇬🇧 {t('settings.english')}</ToggleButton>
             <ToggleButton value="mk">🇲🇰 {t('settings.macedonian')}</ToggleButton>
           </ToggleButtonGroup>
-        </GlassCard>
-
-        <GlassCard>
-          <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>{t('settings.appearance')}</Typography>
-          <Stack direction="row" alignItems="center" justifyContent="space-between">
-            <Typography>{t('settings.darkMode')}</Typography>
-            <Switch checked={mode === 'dark'} onChange={toggle} />
-          </Stack>
         </GlassCard>
       </Box>
       <Snackbar open={snack} autoHideDuration={2000} onClose={() => setSnack(false)} message={t('settings.saved')} />

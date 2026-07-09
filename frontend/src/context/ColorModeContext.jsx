@@ -1,30 +1,15 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { makeTheme } from '../theme';
 
-const ColorModeContext = createContext({ mode: 'dark', toggle: () => {} });
+const ColorModeContext = createContext({ mode: 'light' });
 
 export function ColorModeProvider({ children }) {
-  const [mode, setMode] = useState(localStorage.getItem('mm_mode') || 'dark');
-
-  const value = useMemo(
-    () => ({
-      mode,
-      toggle: () =>
-        setMode((m) => {
-          const next = m === 'dark' ? 'light' : 'dark';
-          localStorage.setItem('mm_mode', next);
-          return next;
-        }),
-    }),
-    [mode]
-  );
-
-  const theme = useMemo(() => makeTheme(mode), [mode]);
+  const theme = useMemo(() => makeTheme(), []);
 
   return (
-    <ColorModeContext.Provider value={value}>
+    <ColorModeContext.Provider value={{ mode: 'light' }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}

@@ -8,6 +8,7 @@ import { Box, Typography, Tooltip as MuiTooltip, useTheme } from '@mui/material'
 import GlassCard from './GlassCard';
 import { chartColors, heatColor } from '../theme';
 import { useLocalized } from '../hooks/useLocalized';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Self-measuring responsive wrapper. Recharts' own ResponsiveContainer relies on
@@ -137,7 +138,7 @@ export function ActivityPieChart({ data, width, height }) {
 
 export function BurnoutDistChart({ dist, width, height }) {
   const a = useAxis();
-  const colors = { Low: '#31d0aa', Medium: '#f7b955', High: '#f0616d' };
+  const colors = { Low: '#6cc4e8', Medium: '#f7b955', High: '#ef7a72' };
   const rows = Object.entries(dist || {}).map(([name, value]) => ({ name, value }));
   return (
     <PieChart width={width} height={height}>
@@ -176,13 +177,14 @@ export function ComparisonBarChart({ data, width, height }) {
       <YAxis stroke={a.stroke} fontSize={11} />
       <Tooltip {...a.tooltip} />
       <Legend />
-      <Bar dataKey="You" fill="#7c6cf0" radius={[6, 6, 0, 0]} />
-      <Bar dataKey="HBSC" fill="#31d0aa" radius={[6, 6, 0, 0]} />
+      <Bar dataKey="You" fill="#f6a24b" radius={[6, 6, 0, 0]} />
+      <Bar dataKey="HBSC" fill="#6cc4e8" radius={[6, 6, 0, 0]} />
     </BarChart>
   );
 }
 
 export function MoodHeatmap({ data, title }) {
+  const { t } = useTranslation();
   return (
     <GlassCard>
       <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1.5 }}>{title}</Typography>
@@ -195,10 +197,10 @@ export function MoodHeatmap({ data, title }) {
         ))}
       </Box>
       <Box sx={{ display: 'flex', gap: 2, mt: 2, flexWrap: 'wrap' }}>
-        {[['green', 'Excellent'], ['yellow', 'Normal'], ['orange', 'Poor'], ['red', 'Critical']].map(([c, l]) => (
+        {[['green', 'excellent'], ['yellow', 'normal'], ['orange', 'poor'], ['red', 'critical']].map(([c, l]) => (
           <Box key={c} sx={{ display: 'flex', alignItems: 'center', gap: 0.6 }}>
             <Box sx={{ width: 14, height: 14, borderRadius: 0.8, bgcolor: heatColor[c] }} />
-            <Typography variant="caption" color="text.secondary">{l}</Typography>
+            <Typography variant="caption" color="text.secondary">{t(`dashboard.heatLegend.${l}`)}</Typography>
           </Box>
         ))}
       </Box>
